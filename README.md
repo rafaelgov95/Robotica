@@ -7,7 +7,7 @@
 ###### __Colaboradores:__
 
 ###### __Alunos:__
-- [Rafael Viana](https://github.com/rafaelgov95)
+- ___[Rafael Viana](https://github.com/rafaelgov95)___
 
 
 
