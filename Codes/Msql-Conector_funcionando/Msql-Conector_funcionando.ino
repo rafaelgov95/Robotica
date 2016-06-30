@@ -25,10 +25,7 @@ char sqlbuf[128];
 char sqlDbase[] = " USE sensores";
 /* Setup for Ethernet Library */
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
-IPAddress server_addr(130,211,75,60);
-//IPAddress gateway(192, 168, 1, 1);
-//IPAddress subnet(255, 255, 255, 0);
-//IPAddress addr(192, 168, 1, 131);
+IPAddress server_addr(130, 211, 75, 60);
 
 /* Setup for the Connector/Arduino */
 Connector my_conn; // The Connector/Arduino reference
@@ -39,11 +36,28 @@ char password[] = "root";
 void setup() {
   Ethernet.begin(mac_addr);
   Serial.begin(115200);
-//  IPAddress myaddr = Ethernet.localIP();
-////  Serial.println(myaddr);
-//  delay(1000);
   Serial.println("Connecting...");
-  boolean msql = false;
+  sensors.begin();
+  Serial.print(sensors.getDeviceCount(), DEC);
+  boolean teste = false;
+  teste = sensors.getAddress(sensor1, 0);
+  teste ? Serial.println("TRUE") : Serial.println("FALSE");
+}
+void loop() {
+  conect ?
+
+
+}
+void lerSensores() {
+  // Le a informacao do sensor
+  sensors.requestTemperatures();
+  sensorTemp = (int)sensors.getTempC(sensor1);
+  sensorLuz = luz();
+  Serial.println(sensorTemp);
+  Serial.println(sensorLuz);
+  UpdateMsql();
+}
+boolean conect() {
   while (!msql) {
     if (my_conn.mysql_connect(server_addr, 3306, user, password))
     {
@@ -53,27 +67,12 @@ void setup() {
     }
     else {
       Serial.println("Connection failed.");
- 
-    }
-  delay(2000);
-  }
-  delay(2000);
- sensors.begin();
-  Serial.print(sensors.getDeviceCount(), DEC);
-  boolean teste = false;
-  teste = sensors.getAddress(sensor1, 0);
-  teste ? Serial.println("TRUE") : Serial.println("FALSE");
-}
-void loop() {
 
-  // Le a informacao do sensor
-  sensors.requestTemperatures();
-  sensorTemp = (int)sensors.getTempC(sensor1);
-  sensorLuz = luz();
-    Serial.println(sensorTemp);
-    Serial.println(sensorLuz);
-  UpdateMsql();
+    }
+    delay(2000);
+  }
 }
+
 int luz() {
   int luz = analogRead(0);
   luz = map(luz, 0, 1024, 0, 100);
