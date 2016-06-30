@@ -5,6 +5,7 @@
   This code module demonstrates how to create a simple
   database-enabled sketch.
 */
+#include <DHT.h>
 #include "SPI.h"
 #include "Ethernet.h"
 #include "sha1.h"
@@ -12,66 +13,74 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 #define ONE_WIRE_BUS 3
+//sensor agua
 OneWire oneWire(ONE_WIRE_BUS);
-float tempMax = 0;
 DallasTemperature sensors(&oneWire);
-DeviceAddress sensor1;
 
-//sql
-int sensorLuz = 100;
+//sensor de tempertaura de ambiente
+DeviceAddress sensor1;
+int sensorAmbi =0;
+int sensorLuz = 0;
 int sensorTemp = 0;
-boolean sqlconnect;
 char sqlbuf[128];
 char sqlDbase[] = " USE sensores";
 /* Setup for Ethernet Library */
 byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 IPAddress server_addr(130, 211, 75, 60);
-
 /* Setup for the Connector/Arduino */
 Connector my_conn; // The Connector/Arduino reference
-
 char user[] = "root";
 char password[] = "root";
-
+DHT dht(4, DHT22);
 void setup() {
   Ethernet.begin(mac_addr);
   Serial.begin(115200);
   Serial.println("Connecting...");
+  dht.begin();
+//sensor de agua
   sensors.begin();
   Serial.print(sensors.getDeviceCount(), DEC);
-  boolean teste = false;
-  teste = sensors.getAddress(sensor1, 0);
-  teste ? Serial.println("TRUE") : Serial.println("FALSE");
+  sensors.getAddress(sensor1, 0) ? Serial.println("TRUE") : Serial.println("FALSE");
+ if (my_conn.mysql_connect(server_addr, 3306, user, password)) {
+     
+ Serial.println("Successful reconnect!");
+
+    } else {
+ Serial.println("ERRO AO CONECTAR !");
+
+    }
 }
-void loop() {
-  conect ?
 
-
+boolean conect() {
+  delay(2500);
+  if (my_conn.is_connected()) {
+    lerSensores();
+  } else {
+    my_conn.disconnect();
+    Serial.println("Connecting...");
+    if (my_conn.mysql_connect(server_addr, 3306, user, password)) {
+      delay(2500);
+      Serial.println("Successful reconnect!");
+      lerSensores();
+    } else {
+      Serial.println("Reconnect!");
+      conect();
+    }
+  }
 }
 void lerSensores() {
   // Le a informacao do sensor
+  delay(5000);
+  sensorAmbi= (int)dht.readTemperature();
   sensors.requestTemperatures();
   sensorTemp = (int)sensors.getTempC(sensor1);
   sensorLuz = luz();
-  Serial.println(sensorTemp);
-  Serial.println(sensorLuz);
+  Serial.println(" Ambiente : " + sensorAmbi);
+  Serial.println(" Sensor Agua: " + sensorTemp);
+  Serial.println("Sensor Luz " + sensorLuz);
   UpdateMsql();
 }
-boolean conect() {
-  while (!msql) {
-    if (my_conn.mysql_connect(server_addr, 3306, user, password))
-    {
-      delay(500);
-      msql = true;
-      Serial.println("Conectado!!");
-    }
-    else {
-      Serial.println("Connection failed.");
 
-    }
-    delay(2000);
-  }
-}
 
 int luz() {
   int luz = analogRead(0);
@@ -79,9 +88,14 @@ int luz() {
   return (luz - 100) * -1;
 }
 void UpdateMsql() {
-  delay(150000);
-  sprintf(sqlbuf, "INSERT INTO Hidroponia.sensores(luzSensor,tempSensor,date) values ('%d','%d',now())", sensorLuz, sensorTemp) ;
+  delay(140000);
+  sprintf(sqlbuf, "INSERT INTO Hidroponia.sensores(luzSensor,tempSensor,tempAmbi,date) values ('%d','%d','%d',now())", sensorLuz, sensorTemp,sensorAmbi) ;
   my_conn.cmd_query(sqlbuf);
   Serial.println("Salvo!!");
-  delay(150000);
+  delay(140000);
 }
+void loop() {
+  delay(10000);
+  conect();
+}
+
