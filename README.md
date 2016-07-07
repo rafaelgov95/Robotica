@@ -24,4 +24,4 @@
 
 ### *__Licença__*.
 
-* UFMS-Coxim/MS
+* UFMS-Coxim/MS.
