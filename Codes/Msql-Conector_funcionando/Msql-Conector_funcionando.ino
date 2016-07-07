@@ -6,13 +6,12 @@
 #include "Ethernet.h"
 #include "sha1.h"
 #include "mysql.h"
-
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 DeviceAddress sensor1;
 DHT dht(4, DHT22);
 IPAddress server_addr(130, 211, 75, 60);
-
+int Led = 13;
 int sensorAmbi;
 int sensorLuz;
 int sensorTemp;
@@ -26,13 +25,21 @@ Connector my_conn;
 void setup() {
   Ethernet.begin(mac_addr);
   Serial.begin(115200);
+  pinMode(Led, OUTPUT);
   Serial.println("Connecting...");
   dht.begin();
-  //sensor de agua
+  
   sensors.begin();
   Serial.print(sensors.getDeviceCount(), DEC);
   sensors.getAddress(sensor1, 0) ? Serial.println("Sensor De Agua Ativado") : Serial.println("Sensor de Agua Desativado");
-  my_conn.mysql_connect(server_addr, 3306, user, password) ;
+ if (my_conn.mysql_connect(server_addr, 3306, user, password)) {
+      Serial.println("Successful reconnect!");
+         digitalWrite(Led, HIGH);
+      
+    } else {
+Serial.println("erro!");
+         digitalWrite(Led, LOW);
+    }
 }
 
 void lerSensores() {
@@ -63,11 +70,13 @@ void UpdateMsql() {
 
 void reconect() {
   while (true) {
+    digitalWrite(Led, LOW);
     my_conn.disconnect();
     delay(120000);
     if (my_conn.mysql_connect(server_addr, 3306, user, password)) {
       Serial.println("Successful reconnect!");
-      return; 
+         digitalWrite(Led, HIGH);
+      return;
     } else {
       Serial.println("Reconnect!");
     }
@@ -76,10 +85,11 @@ void reconect() {
 void loop() {
   delay(240000);
   if (my_conn.is_connected()) {
+    digitalWrite(Led, HIGH);
     lerSensores();
   } else {
     reconect();
     lerSensores();
   }
 }
- 
+
