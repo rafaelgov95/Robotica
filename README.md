@@ -4,7 +4,7 @@
 # Curso de Robótica - UFMS - Coxim/MS - 2016
 ###### __Professor:__  [Kleber Kruger](https://github.com/kleberkruger)
 
-###### __Colaboradores:__ 00
+###### __Colaboradores:__ 
 
 ###### __Alunos:__
 - ___[Rafael Viana](https://github.com/rafaelgov95)___
