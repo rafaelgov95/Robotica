@@ -1,0 +1,4 @@
+/opt/clion-2017.1.1/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/rafael/Documentos/Repositorios/UFMS/Materias/ProjetoExt/Robotica/PluginsArduino/ArduinoClion/promini
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rafael/Documentos/Repositorios/UFMS/Materias/ProjetoExt/Robotica/PluginsArduino/ArduinoClion/promini/cmake-build-debug

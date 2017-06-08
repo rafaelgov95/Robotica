@@ -1,0 +1,1 @@
+/home/rafael/.platformio/packages/toolchain-atmelavr/bin/avr-g++   -g   CMakeFiles/promini.dir/home/rafael/ArduinoClion/promini/src/main.cpp.o  -o promini -rdynamic 
