@@ -7,13 +7,11 @@
 #### __Colaboradores:__ 
 
 #### __Alunos:__
-##### Coorientador - ___[Rafael Viana](https://github.com/rafaelgov95)___
-###### Orientado - Japones
-######## Orientado - Marcos
-
-
-
- 
+##### Coorientadores 
+- ___[Rafael Viana](https://github.com/rafaelgov95)___
+###### Orientados 
+- Japones
+- Marcos
 
 ### *__Codigos__*
 * [Maquina de Status - Carro (V.1)](https://github.com/rafaelgov95/Robotica/blob/master/carro-seguidor-de-linha/carro-seguidor-de-linha-v1.ino)
