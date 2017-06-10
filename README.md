@@ -2,13 +2,13 @@
 ![Robotica](http://3.bp.blogspot.com/-YBfjQDZYWJw/TbjPWgriNSI/AAAAAAAACQc/qkVk75QqfDw/s1600/banner_robotica.jpg)
 
 # Curso de Robótica - UFMS - Coxim/MS - 2017
-###### __Professor:__  [Kleber Kruger](https://github.com/kleberkruger)
+#### __M. Professor:__  [Kleber Kruger](https://github.com/kleberkruger)
 
-###### __Colaboradores:__ 
+#### __Colaboradores:__ 
 
-###### __Alunos:__
-####### Coorientador - ___[Rafael Viana](https://github.com/rafaelgov95)___
-######## Orientado - Japones
+#### __Alunos:__
+##### Coorientador - ___[Rafael Viana](https://github.com/rafaelgov95)___
+###### Orientado - Japones
 ######## Orientado - Marcos
 
 
@@ -27,3 +27,4 @@
 ### *__Licença__*.
 
 * UFMS-Coxim/MS.
+#### 2016-2017
