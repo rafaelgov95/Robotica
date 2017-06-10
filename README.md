@@ -7,7 +7,9 @@
 ###### __Colaboradores:__ 
 
 ###### __Alunos:__
-- ___[Rafael Viana](https://github.com/rafaelgov95)___
+## Coorientador - ___[Rafael Viana](https://github.com/rafaelgov95)___
+### Orientado - Japones
+### Orientado - Marcos
 
 
 
