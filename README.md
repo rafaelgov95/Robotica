@@ -2,16 +2,17 @@
 ![Robotica](http://3.bp.blogspot.com/-YBfjQDZYWJw/TbjPWgriNSI/AAAAAAAACQc/qkVk75QqfDw/s1600/banner_robotica.jpg)
 
 # Curso de Robótica - UFMS - Coxim/MS - 2017
-###### __Professor:__  [Kleber Kruger](https://github.com/kleberkruger)
 
-###### __Colaboradores:__ 
+#### __Orientador:__ 
+- [M. Kleber Kruger](https://github.com/kleberkruger)
 
-###### __Alunos:__
+#### Coorientadores 
+
+#### __Colaboradores:__ 
+
+#### Orientados
 - ___[Rafael Viana](https://github.com/rafaelgov95)___
-
-
-
- 
+- __Marcos__
 
 ### *__Codigos__*
 * [Maquina de Status - Carro (V.1)](https://github.com/rafaelgov95/Robotica/blob/master/carro-seguidor-de-linha/carro-seguidor-de-linha-v1.ino)
@@ -25,3 +26,4 @@
 ### *__Licença__*.
 
 * UFMS-Coxim/MS.
+#### 2016-2017
