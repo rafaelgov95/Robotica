@@ -3,16 +3,17 @@
 
 # Curso de Robótica - UFMS - Coxim/MS - 2017
 
-#### __Docente:__ 
+#### __Orientador:__ 
 - [M. Kleber Kruger](https://github.com/kleberkruger)
+
+#### Coorientadores 
 
 #### __Colaboradores:__ 
 
-#### Coorientadores 
+#### Orientados
 - ___[Rafael Viana](https://github.com/rafaelgov95)___
-#### Orientados 
-- Japones
-- Marcos
+- ____
+- __Marcos__
 
 ### *__Codigos__*
 * [Maquina de Status - Carro (V.1)](https://github.com/rafaelgov95/Robotica/blob/master/carro-seguidor-de-linha/carro-seguidor-de-linha-v1.ino)
