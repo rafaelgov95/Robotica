@@ -6,6 +6,7 @@
 
 
 String RvLib::getChave() {
-
-    return chave;
+    String text;
+    text = "Teste";
+    return chave = text;
 }
