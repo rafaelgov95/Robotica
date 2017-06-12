@@ -12,7 +12,7 @@
 
 #### Orientados
 - ___[Rafael Viana](https://github.com/rafaelgov95)___
-- ____
+- __ __
 - __Marcos__
 
 ### *__Codigos__*
