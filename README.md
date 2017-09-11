@@ -1,7 +1,7 @@
 
 ![Robotica](http://3.bp.blogspot.com/-YBfjQDZYWJw/TbjPWgriNSI/AAAAAAAACQc/qkVk75QqfDw/s1600/banner_robotica.jpg)
 
-# Curso de Robótica - UFMS - Coxim/MS - 2017.
+# Curso de Robótica - UFMS - Coxim/MS - 2017..
 
 #### __Orientador:__ 
 - [M. Kleber Kruger](https://github.com/kleberkruger)
